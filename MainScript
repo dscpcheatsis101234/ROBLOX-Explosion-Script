@@ -1,0 +1,19 @@
+-- Local Script inside StarterPack
+local player = game:GetService("Players").LocalPlayer
+local mouse = player:GetMouse()
+local down = false
+mouse.Button1Down:connect(function()
+down = true
+while down do
+wait()
+local explosion = Instance.new("Explosion", game.Workspace)
+explosion.Position = mouse.Hit.p
+explosion.DestroyJointRadiusPercent = 0
+explosion.BlastRadius = 0
+explosion.BlastPressure = 0
+wait()
+end
+end)
+mouse.Button1Up:connect(function()
+down = false
+end)
